@@ -1,0 +1,12 @@
+<require>
+    <tag load="mofron-comp-button">Button</tag>
+    <tag load="mofron-event-focus">Focus</tag>
+</require>
+
+<script name=fevt run=init>
+console.log(fevt1.text().toString() + "focus:" + fevt2);
+</script>
+
+<Button>button 1</Button>
+<Button event=Focus:@fevt>button 2</Button>
+<Button>button 3</Button>
