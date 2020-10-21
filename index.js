@@ -23,7 +23,7 @@ module.exports = class extends mofron.class.Event {
     constructor (prm) {
         try {
             super();
-            this.name("Focus");
+            this.modname("Focus");
             /* init config */
             this.confmng().add("status", { type: "boolean", init: false });
             /* set config */
