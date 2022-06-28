@@ -7,9 +7,10 @@
  *  - mixed: user specified parameter
  * @license MIT
  */
-const Key = require("mofron-event-key");
-const Click = require("mofron-event-click");
-const comutl = mofron.util.common;
+const Key     = require("mofron-event-key");
+const Click   = require("mofron-event-click");
+const comutl  = mofron.util.common;
+const ConfArg = mofron.class.ConfArg;
 
 module.exports = class extends mofron.class.Event {
     /**
@@ -45,11 +46,8 @@ module.exports = class extends mofron.class.Event {
     contents (dom) {
         try {
 	    mofron.window.event([
-	        new Key(comutl.getarg(
-                    comutl.getarg(this.keyevt, this),
-		    "Tab"
-		)),
-	        new Click(comutl.getarg(this.clkevt,this))
+	        new Key(new ConfArg(this.keyevt, this),"Tab"),
+	        new Click(new ConfArg(this.clkevt,this))
 	    ]);
 	} catch (e) {
             console.error(e.stack);
